@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Hostel Mess Complaint Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Top Navigation Bar -->
+    <nav class="navbar">
+        <h1>Hostel Mess Complaint Portal</h1>
+        <div class="nav-links">
+            <a href="dashboard.html" style="font-weight: bold; background-color: #4b5563;">Dashboard</a>
+            <a href="contact.html">Contact</a>
+            <!-- Logout Button in Navigation -->
+            <button id="navLogoutBtn" class="btn btn-delete" style="padding: 6px 12px; font-size: 14px;">Logout</button>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+
+        <!-- User Greeting & Top Action Bar -->
+        <div class="user-bar">
+            <div>
+                <h2>Hostel Mess Complaints Dashboard</h2>
+                <p>
+                    Welcome, <strong id="loggedInUserDisplay">Student</strong>
+                    <span id="userRoleBadge" class="badge-role badge-role-student">Role: Student</span>
+                </p>
+            </div>
+            <div>
+                <!-- Fast Role Switcher Button for viva demonstration -->
+                <button id="switchRoleBtn" class="btn-role-switch" style="margin-right: 8px;">
+                    ⇄ Switch to Warden
+                </button>
+                <!-- Reset Data Button -->
+                <button id="resetDataBtn" class="btn btn-secondary">
+                    ↻ Reset Data (From API)
+                </button>
+            </div>
+        </div>
+
+        <!-- Card 1: Add New Complaint Form (POST Method) -->
+        <div class="card" id="addComplaintCard">
+            <h2 id="addComplaintHeading">Add New Complaint (POST)</h2>
+
+            <!-- Success notification box -->
+            <div id="addComplaintSuccess" class="success-message">
+                Complaint registered successfully!
+            </div>
+
+            <form id="addComplaintForm">
+                <!-- Title input -->
+                <div class="form-group">
+                    <label for="complaintTitle">Complaint Title (Minimum 5 characters)</label>
+                    <input type="text" id="complaintTitle" placeholder="e.g., Cold food served at dinner">
+                    <div id="titleError" class="error-message"></div>
+                </div>
+
+                <!-- Category selection dropdown -->
+                <div class="form-group">
+                    <label for="complaintCategory">Category</label>
+                    <select id="complaintCategory">
+                        <option value="">-- Please Select Category --</option>
+                        <option value="food">Food Quality</option>
+                        <option value="hygiene">Hygiene & Cleanliness</option>
+                        <option value="timing">Mess Timings</option>
+                        <option value="other">Other Issues</option>
+                    </select>
+                    <div id="categoryError" class="error-message"></div>
+                </div>
+
+                <!-- Description textarea -->
+                <div class="form-group">
+                    <label for="complaintDescription">Description (Minimum 10 characters)</label>
+                    <textarea id="complaintDescription" rows="3" placeholder="Explain the complaint in detail..."></textarea>
+                    <div id="descriptionError" class="error-message"></div>
+                </div>
+
+                <!-- Submit Complaint Button -->
+                <button type="submit" id="submitComplaintBtn" class="btn btn-primary">
+                    Submit Complaint
+                </button>
+            </form>
+        </div>
+
+        <!-- Card 2: Complaints List Table (GET, PUT, DELETE Methods) -->
+        <div class="card">
+            <h2>All Complaints</h2>
+
+            <!-- Search Bar (GET with query) -->
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search complaints by keyword...">
+                <!-- Search Button -->
+                <button id="searchBtn" class="btn btn-primary">Search</button>
+                <!-- Clear Search Button -->
+                <button id="clearSearchBtn" class="btn btn-secondary">Clear</button>
+            </div>
+
+            <!-- Complaints Table -->
+            <div class="table-container">
+                <table id="complaintsTable">
+                    <thead>
+                        <tr>
+                            <th style="width: 50px;">ID</th>
+                            <th style="width: 180px;">Title</th>
+                            <th style="width: 110px;">Category</th>
+                            <th>Description</th>
+                            <th style="width: 110px;">Status</th>
+                            <th style="width: 170px;">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="complaintsTableBody">
+                        <!-- Rows will be dynamically inserted by dashboard.js -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Container for "No complaints found" or loading message -->
+            <div id="tableStatusMessage" class="no-data" style="display: none;"></div>
+        </div>
+
+    </div>
+
+    <!-- Dashboard Page Logic -->
+    <script src="dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Hostel Mess Complaint Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Top Navigation Bar -->
+    <nav class="navbar">
+        <h1>Hostel Mess Complaint Portal</h1>
+        <div class="nav-links">
+            <a href="index.html">Login</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <div class="container" style="max-width: 480px;">
+
+        <div class="card">
+            <h2>Portal Login</h2>
+
+            <!-- Demo credentials help box for evaluation -->
+            <div class="demo-box">
+                <strong>Demo Login Credentials:</strong><br>
+                Username: <code>emilys</code><br>
+                Password: <code>emilyspass</code><br>
+                <small>Select either <em>Student</em> or <em>Mess Warden</em> role below.</small>
+            </div>
+
+            <!-- Login Form -->
+            <form id="loginForm">
+                <!-- Role selection field -->
+                <div class="form-group">
+                    <label for="roleSelect">Login As</label>
+                    <select id="roleSelect">
+                        <option value="Student" selected>Hostel Student (Raise & View Complaints)</option>
+                        <option value="Warden">Mess Warden (Resolve & Manage Complaints)</option>
+                    </select>
+                </div>
+
+                <!-- Username field -->
+                <div class="form-group">
+                    <label for="usernameInput">Username</label>
+                    <input type="text" id="usernameInput" placeholder="Enter username (min 3 chars)" value="emilys">
+                    <div id="usernameError" class="error-message"></div>
+                </div>
+
+                <!-- Password field -->
+                <div class="form-group">
+                    <label for="passwordInput">Password</label>
+                    <input type="password" id="passwordInput" placeholder="Enter password (min 6 chars)" value="emilyspass">
+                    <div id="passwordError" class="error-message"></div>
+                </div>
+
+                <!-- Global login error message (wrong username/password) -->
+                <div id="loginGeneralError" class="error-message" style="margin-bottom: 12px; font-weight: bold;"></div>
+
+                <!-- Submit Button -->
+                <button type="submit" id="loginSubmitBtn" class="btn btn-primary" style="width: 100%;">
+                    Log In
+                </button>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- Login Page Logic -->
+    <script src="login.js"></script>
+</body>
+</html>

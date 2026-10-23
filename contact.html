@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Hostel Mess Complaint Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Top Navigation Bar -->
+    <nav class="navbar">
+        <h1>Hostel Mess Complaint Portal</h1>
+        <div class="nav-links">
+            <a href="dashboard.html" id="navDashboardLink">Dashboard</a>
+            <a href="contact.html" style="font-weight: bold; background-color: #4b5563;">Contact</a>
+            <!-- Dynamic button: changes between Logout and Login based on token -->
+            <button id="navAuthBtn" class="btn btn-delete" style="padding: 6px 12px; font-size: 14px;">Logout</button>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <div class="container" style="max-width: 600px;">
+
+        <div class="card">
+            <h2>Contact Hostel Mess Committee</h2>
+            <p style="margin-bottom: 20px; color: #4b5563;">
+                Have questions or direct feedback? Send a message to the hostel mess warden and food committee.
+            </p>
+
+            <!-- Success notification message -->
+            <div id="contactSuccessMsg" class="success-message">
+                Message sent successfully! The warden will get back to you.
+            </div>
+
+            <!-- Contact Form -->
+            <form id="contactForm">
+                <!-- Name field -->
+                <div class="form-group">
+                    <label for="contactName">Your Full Name (Minimum 3 characters)</label>
+                    <input type="text" id="contactName" placeholder="e.g., Emily Smith">
+                    <div id="nameError" class="error-message"></div>
+                </div>
+
+                <!-- Email field -->
+                <div class="form-group">
+                    <label for="contactEmail">Email Address (Must contain @ and .)</label>
+                    <input type="text" id="contactEmail" placeholder="e.g., student@college.edu">
+                    <div id="emailError" class="error-message"></div>
+                </div>
+
+                <!-- Message field -->
+                <div class="form-group">
+                    <label for="contactMessage">Your Message (Minimum 10 characters)</label>
+                    <textarea id="contactMessage" rows="4" placeholder="Write your message here..."></textarea>
+                    <div id="messageError" class="error-message"></div>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" id="sendContactBtn" class="btn btn-primary" style="width: 100%;">
+                    Send Message (POST)
+                </button>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- Contact Page Logic -->
+    <script src="contact.js"></script>
+</body>
+</html>
